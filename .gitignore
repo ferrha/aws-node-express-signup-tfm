@@ -1,3 +1,5 @@
 node_modules/
 .elasticbeanstalk/
 .DS_Store
+.idea
+.ebextensions
