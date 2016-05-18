@@ -34,10 +34,10 @@ app.locals.theme = process.env.THEME; //Make the THEME environment variable avai
 var config = fs.readFileSync('./app_config.json', 'utf8');
 config = JSON.parse(config);
 
-//Create DynamoDB client and pass in region.
-var db = new AWS.DynamoDB({region: config.AWS_REGION});
-//Create SNS client and pass in region.
-var sns = new AWS.SNS({ region: config.AWS_REGION});
+//Create DynamoDB client, pass in region and keys.
+var db = new AWS.DynamoDB({region: config.AWS_REGION, accessKeyId: process.env.accessKey, secretAccessKey: process.env.secretAccessKey});
+//Create SNS client, pass in region and keys.
+var sns = new AWS.SNS({ region: config.AWS_REGION, accessKeyId: process.env.accessKey, secretAccessKey: process.env.secretAccessKey});
 
 //GET home page.
 app.get('/', routes.index);
